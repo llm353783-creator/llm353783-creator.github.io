@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凯文·德布劳内 · 个人主页</title>
+<meta name="description" content="凯文·德布劳内（Kevin De Bruyne）个人主页：个人信息、图集、生涯与数据。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230A1630'/%3E%3Ctext%20x='32'%20y='43'%20font-family='Arial,sans-serif'%20font-size='22'%20font-weight='700'%20fill='%234DA3FF'%20text-anchor='middle'%3EKDB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== 基础 ===== */
+:root{
+  --bg:#060D1C;
+  --bg2:#0A1630;
+  --panel:#0C1A35;
+  --panel2:#0E1F40;
+  --line:rgba(148,180,255,.14);
+  --line-strong:rgba(148,180,255,.28);
+  --text:#EAF1FB;
+  --muted:#9FB3CE;
+  --azure:#3E8BFF;
+  --sky:#7FB5FF;
+  --gold:#E6C067;
+  --gold-soft:rgba(230,192,103,.14);
+  --serif:"Noto Serif SC","Songti SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(62,139,255,.35)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--sky);outline-offset:3px;border-radius:4px}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ===== 导航 ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .3s,border-color .3s,backdrop-filter .3s;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:rgba(6,13,28,.82);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:12px;min-height:44px;font-weight:700;letter-spacing:.06em}
+.brand-mark{
+  width:38px;height:38px;border-radius:10px;flex:none;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--azure),#1E5ECF);
+  color:#fff;font-family:var(--serif);font-weight:700;font-size:15px;
+  box-shadow:0 4px 18px rgba(62,139,255,.35);
+}
+.brand-name{font-family:var(--serif);font-size:17px}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{
+  padding:8px 16px;border-radius:999px;font-size:14.5px;color:var(--muted);
+  transition:color .2s,background .2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:#fff;background:rgba(62,139,255,.16)}
+.lang-btn{
+  margin-left:10px;padding:10px 16px;min-height:44px;display:inline-flex;align-items:center;
+  border-radius:999px;font-size:13.5px;font-weight:500;
+  border:1px solid var(--line-strong);color:var(--sky);
+  transition:background .2s,border-color .2s,color .2s;
+}
+.lang-btn:hover{background:rgba(62,139,255,.14);border-color:var(--azure)}
+.burger{display:none;flex-direction:column;gap:5px;align-items:center;justify-content:center;width:44px;height:44px;flex:none}
+.burger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .25s,opacity .25s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ===== 视图切换 ===== */
+.view{display:none}
+.view.active{display:block;animation:viewIn .45s ease both}
+@keyframes viewIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .view.active{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ===== Hero ===== */
+.hero{
+  min-height:100svh;display:flex;align-items:flex-end;
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,rgba(6,13,28,.55) 0%,rgba(6,13,28,.88) 78%,var(--bg) 100%);
+}
+.hero-bg{position:absolute;inset:0;z-index:-2;object-fit:cover;width:100%;height:100%;opacity:.62}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(900px 420px at 78% 18%,rgba(62,139,255,.20),transparent 60%),
+    radial-gradient(700px 380px at 12% 82%,rgba(230,192,103,.10),transparent 60%);
+}
+.hero-inner{padding:150px 24px 96px;width:100%}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:13px;letter-spacing:.32em;color:var(--gold);font-weight:500;
+}
+.hero-eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+.hero-name{
+  margin-top:22px;
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(2.7rem,7.2vw,5.1rem);
+  line-height:1.14;letter-spacing:.02em;
+}
+.hero-name-en{
+  margin-top:6px;font-family:var(--serif);font-weight:600;
+  font-size:clamp(1.15rem,2.6vw,1.75rem);
+  color:var(--sky);letter-spacing:.04em;
+}
+.hero-role{
+  margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+}
+.hero-role .tag{
+  font-size:13.5px;letter-spacing:.12em;padding:7px 14px;border-radius:999px;
+  border:1px solid var(--line-strong);color:var(--text);background:rgba(10,22,48,.55);
+  backdrop-filter:blur(6px);
+}
+.hero-role .tag.hl{border-color:var(--gold);color:var(--gold);background:var(--gold-soft)}
+.hero-sub{
+  margin-top:20px;max-width:640px;font-size:15.5px;color:var(--muted);
+}
+.hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 26px;border-radius:999px;font-size:15px;font-weight:500;
+  transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;
+}
+.btn svg{width:16px;height:16px}
+.btn-primary{background:linear-gradient(135deg,var(--azure),#2568E0);color:#fff;box-shadow:0 8px 26px rgba(62,139,255,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(62,139,255,.45)}
+.btn-ghost{border:1px solid var(--line-strong);color:var(--text)}
+.btn-ghost:hover{border-color:var(--azure);color:var(--sky);transform:translateY(-2px)}
+.hero-scroll{
+  margin-top:52px;display:inline-flex;align-items:center;gap:10px;
+  font-size:12.5px;letter-spacing:.22em;color:var(--muted);
+}
+.hero-scroll::after{content:"";width:1px;height:34px;background:linear-gradient(var(--muted),transparent)}
+
+/* ===== 区块 ===== */
+.section{padding:88px 0}
+.sec-head{margin-bottom:44px}
+.sec-eyebrow{font-size:12.5px;letter-spacing:.3em;color:var(--azure);font-weight:500}
+.sec-title{
+  margin-top:10px;font-family:var(--serif);font-weight:700;
+  font-size:clamp(1.7rem,3.6vw,2.4rem);letter-spacing:.01em;
+}
+.sec-sub{margin-top:10px;color:var(--muted);font-size:15px;max-width:640px}
+
+/* ===== 关于 ===== */
+.about-grid{display:grid;grid-template-columns:360px 1fr;gap:52px;align-items:start}
+.portrait{position:relative;border-radius:18px;padding:12px;border:1px solid var(--line);background:var(--panel)}
+.portrait img{border-radius:12px;aspect-ratio:2/3;object-fit:cover;width:100%}
+.portrait-cap{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center}
+.portrait::before{
+  content:"";position:absolute;inset:-14px -14px auto auto;width:110px;height:110px;z-index:-1;
+  background:radial-gradient(circle at top right,rgba(62,139,255,.4),transparent 70%);
+  border-radius:18px;
+}
+.about-body h3{font-family:var(--serif);font-size:21px;font-weight:700;margin-bottom:14px}
+.about-lead{color:var(--text);font-size:15.5px}
+.traits{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 34px}
+.trait{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 16px;border-radius:12px;font-size:13.5px;
+  border:1px solid var(--line);background:var(--panel);color:var(--sky);
+}
+.trait svg{width:16px;height:16px;flex:none;color:var(--gold)}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:30px}
+.fact{background:var(--panel);padding:18px 20px}
+.fact dt{font-size:12.5px;letter-spacing:.14em;color:var(--muted)}
+.fact dd{margin-top:6px;font-size:16px;font-weight:500}
+.ph{
+  border:1.5px dashed rgba(62,139,255,.5);border-radius:16px;
+  background:rgba(62,139,255,.05);
+  padding:30px 26px;text-align:center;
+}
+.ph-badge{
+  display:inline-block;padding:4px 13px;border-radius:999px;font-size:12px;font-weight:500;
+  letter-spacing:.18em;color:#0A1630;background:var(--gold);
+}
+.ph-text{margin-top:12px;font-size:14.5px;color:var(--muted)}
+
+/* ===== 图集 ===== */
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+.g-item{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--panel);cursor:zoom-in;transition:transform .3s,border-color .3s,box-shadow .3s}
+.g-item:hover{transform:translateY(-5px);border-color:var(--line-strong);box-shadow:0 18px 40px rgba(4,10,24,.5)}
+.g-item img{width:100%;object-fit:cover;transition:transform .5s}
+.g-item:hover img{transform:scale(1.035)}
+.g-cap{padding:16px 18px 18px}
+.g-cap h4{font-size:16px;font-weight:500;font-family:var(--serif)}
+.g-cap p{margin-top:3px;font-size:13.5px;color:var(--muted)}
+.g-1{grid-column:span 7}.g-2{grid-column:span 5}
+.g-3{grid-column:span 4}.g-4{grid-column:span 4}.g-5{grid-column:span 4}
+.g-6{grid-column:span 6}
+.g-1 img{aspect-ratio:16/10}
+.g-2 img{aspect-ratio:16/10}
+.g-3 img{aspect-ratio:4/3}.g-4 img{aspect-ratio:4/3}.g-5 img{aspect-ratio:4/3}
+.g-6 img{aspect-ratio:3/4}
+
+/* 灯箱 */
+.lightbox{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(4,8,18,.88);backdrop-filter:blur(8px);padding:24px}
+.lightbox.open{display:flex}
+.lightbox figure{max-width:min(1080px,92vw);text-align:center}
+.lightbox img{max-width:100%;max-height:76vh;margin:0 auto;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.lightbox figcaption{margin-top:16px;font-size:14.5px;color:var(--muted)}
+.lightbox-close{position:absolute;top:22px;right:26px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;color:var(--text)}
+.lightbox-close svg{width:18px;height:18px}
+.lightbox-close:hover{border-color:var(--azure);color:var(--sky)}
+
+/* ===== 生涯时间轴 ===== */
+.tl{display:grid;grid-template-columns:150px 44px 1fr;row-gap:0}
+.tl-row{display:contents}
+.tl-time{padding:18px 0;text-align:right;font-size:14px;color:var(--muted);letter-spacing:.06em}
+.tl-axis{position:relative;display:flex;justify-content:center;padding:18px 0}
+.tl-axis::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--line);transform:translateX(-50%)}
+.tl-dot{
+  position:relative;z-index:1;width:14px;height:14px;border-radius:50%;
+  background:var(--azure);border:3px solid var(--bg);box-shadow:0 0 0 3px rgba(62,139,255,.28);
+  align-self:center;
+}
+.tl-dot.ghost{background:transparent;border:2px dashed var(--line-strong);box-shadow:none}
+.tl-content{padding:14px 0 26px}
+.tl-card{border:1px dashed rgba(62,139,255,.45);background:rgba(62,139,255,.04);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:12px;min-height:74px}
+.tl-card .tbd-tag{font-size:12px;letter-spacing:.16em;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:3px 12px;white-space:nowrap}
+.tl-card span{font-size:14px;color:var(--muted)}
+
+/* ===== 数据 ===== */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat-card{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:26px 22px;text-align:center;transition:border-color .25s,transform .25s}
+.stat-card:hover{border-color:var(--line-strong);transform:translateY(-4px)}
+.stat-card .num{font-family:var(--serif);font-weight:700;font-size:40px;color:var(--sky);line-height:1.2}
+.stat-card .num.tbd{color:var(--muted)}
+.stat-card .lbl{margin-top:8px;font-size:13.5px;color:var(--muted);letter-spacing:.1em}
+.stat-card .sub-tbd{margin-top:4px;font-size:11.5px;color:var(--gold)}
+.sub-title{font-family:var(--serif);font-size:19px;font-weight:700;margin-bottom:14px}
+.about-lead + .about-lead{margin-top:12px}
+.stat-note{margin-top:6px;font-size:11.5px;color:var(--muted)}
+.mile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mile{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:20px 18px}
+.mile-num{font-family:var(--serif);font-weight:700;font-size:30px;color:var(--gold);line-height:1.2}
+.mile-d{margin-top:6px;font-size:12.5px;color:var(--muted);line-height:1.6}
+.trophy-line{display:flex;align-items:center;gap:12px;margin-top:22px;border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:16px 20px;font-size:13.5px;color:var(--muted);line-height:1.7}
+.trophy-line svg{width:22px;height:22px;flex:none;color:var(--gold)}
+.trophy-line b{color:var(--text);font-weight:600}
+.chart-wrap{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:24px 20px 18px;margin-top:22px}
+.chart-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.chart-title{font-family:var(--serif);font-size:17px;font-weight:700}
+.chart-legend{display:flex;gap:16px;font-size:12.5px;color:var(--muted)}
+.legend-dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.dot-g{background:var(--azure)}.dot-a{background:var(--gold)}
+.chart-bars{display:flex;gap:8px;align-items:flex-end;height:286px;padding:0 2px;overflow-x:auto}
+.cbar{flex:1;min-width:56px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.cbar .bars{display:flex;align-items:flex-end;gap:5px;height:238px}
+.bar{width:15px;border-radius:4px 4px 2px 2px;position:relative;min-height:3px}
+.bar b{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:500;color:var(--text);white-space:nowrap}
+.bar-g{background:linear-gradient(180deg,var(--sky),var(--azure))}
+.bar-a{background:linear-gradient(180deg,#F0D491,var(--gold))}
+.cbar .lb{margin-top:12px;font-size:11.5px;color:var(--muted);text-align:center;line-height:1.45}
+.cbar .lb .club{display:block;color:var(--text);opacity:.85}
+.chart-note{margin-top:14px;font-size:11.5px;color:var(--muted);line-height:1.7}
+@media (max-width:760px){
+  .mile-grid{grid-template-columns:repeat(2,1fr)}
+  .cbar{min-width:42px}
+  .bar{width:13px}
+}
+
+/* ===== 页脚 ===== */
+.footer{border-top:1px solid var(--line);background:var(--bg2);padding:46px 0 30px;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+.footer h5{font-family:var(--serif);font-size:15px;font-weight:700;margin-bottom:14px}
+.footer p,.footer a{font-size:13.5px;color:var(--muted)}
+.footer .links{display:flex;flex-direction:column}
+.footer .links a{padding:6px 2px;display:inline-block}
+.footer .links a:hover{color:var(--sky)}
+.footer-bottom{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+
+/* ===== 响应式 ===== */
+@media (max-width:960px){
+  .about-grid{grid-template-columns:280px 1fr;gap:36px}
+  .g-1,.g-2{grid-column:span 6}
+  .g-3,.g-4,.g-5{grid-column:span 4}
+  .g-6{grid-column:span 8}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .nav-links{
+    position:fixed;top:66px;left:0;right:0;flex-direction:column;align-items:stretch;
+    background:rgba(6,13,28,.96);backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line);padding:14px 20px 20px;gap:4px;
+    transform:translateY(-120%);transition:transform .3s;z-index:99;
+  }
+  .nav-links.open{transform:none}
+  .nav-links a{padding:12px 16px;border-radius:12px;font-size:16px}
+  .lang-btn{margin:10px 0 0 16px;align-self:flex-start}
+  .burger{display:flex}
+  .about-grid{grid-template-columns:1fr;gap:34px}
+  .portrait{max-width:420px}
+  .facts{grid-template-columns:1fr}
+  .g-1,.g-2,.g-3,.g-4,.g-5,.g-6{grid-column:span 12}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .tl{grid-template-columns:86px 34px 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .section{padding:64px 0}
+}
+@media (max-width:420px){
+  .stat-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 导航 ===== -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#/home">
+      <span class="brand-mark">KDB</span>
+      <span class="brand-name" data-i18n="brand.name">凯文·德布劳内</span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="主导航">
+      <a href="#/home" data-i18n="nav.home">首页</a>
+      <a href="#/gallery" data-i18n="nav.gallery">图集</a>
+      <a href="#/career" data-i18n="nav.career">生涯</a>
+      <a href="#/stats" data-i18n="nav.stats">数据</a>
+      <button class="lang-btn" id="langBtn" aria-label="Switch language">EN</button>
+    </nav>
+    <button class="burger" id="burger" aria-label="打开菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== 视图：首页 ===== -->
+<section class="view active" id="view-home">
+  <div class="hero">
+    <img class="hero-bg" src="assets/stadium-aerial.jpg" alt="">
+    <div class="hero-inner container">
+      <span class="hero-eyebrow" data-i18n="hero.eyebrow">个人主页 · 足球运动员</span>
+      <h1 class="hero-name" data-i18n="hero.name">凯文·德布劳内</h1>
+      <div class="hero-name-en" data-i18n="hero.nameEn">Kevin De Bruyne</div>
+      <div class="hero-role">
+        <span class="tag hl" data-i18n="hero.role1">意大利足球甲级联赛 · 那不勒斯主力中场</span>
+        <span class="tag" data-i18n="hero.role2">司职中场 / 前腰</span>
+      </div>
+      <p class="hero-sub" data-i18n="hero.sub">以精准传球、远射、视野和创造机会能力著称，被广泛认为是英超时代最具代表性的中场球员之一。</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#/gallery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L6 23"/></svg>
+          <span data-i18n="hero.cta.gallery">查看图集</span>
+        </a>
+        <a class="btn btn-ghost" href="#/career">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 3 5-6"/></svg>
+          <span data-i18n="hero.cta.career">了解生涯</span>
+        </a>
+      </div>
+      <span class="hero-scroll" data-i18n="hero.scroll">向下滚动</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-eyebrow" data-i18n="about.eyebrow">ABOUT · 关于我</div>
+        <h2 class="sec-title" data-i18n="about.title">个人信息</h2>
+      </div>
+      <div class="about-grid">
+        <div class="portrait">
+          <img src="assets/hero-portrait.jpg" alt="Kevin De Bruyne 肖像">
+          <div class="portrait-cap" data-i18n="about.portraitCap">官方肖像</div>
+        </div>
+        <div class="about-body">
+          <h3 data-i18n="about.introTitle">自我介绍</h3>
+          <p class="about-lead" data-i18n="about.lead1">凯文·德布劳内（Kevin De Bruyne），1991年6月28日出生于比利时德龙恩，比利时职业男子足球运动员，司职中场，现效力于意大利足球甲级联赛的那不勒斯足球俱乐部。</p>
+          <p class="about-lead" data-i18n="about.lead2">俱乐部方面，德布劳内出道于根特青训营；2005年加入亨克青年队，2008-09赛季升入一线队。2012年加盟切尔西，同年租借云达不莱梅；2014年加盟沃尔夫斯堡；2015年8月加盟曼彻斯特城，效力曼城期间夺得6次英超冠军、1次欧冠冠军、2次足总杯冠军和1次世俱杯冠军。2025年6月，加盟那不勒斯。</p>
+          <p class="about-lead" data-i18n="about.lead3">国家队方面，2010年8月完成比利时国家队首秀，先后随队参加2014年世界杯、2016年欧洲杯、2018年世界杯、2020年欧洲杯、2022年世界杯和2024年欧洲杯六届大赛。2026年5月15日，入选比利时国家队出征2026年国际足联世界杯大名单。</p>
+          <div class="traits">
+            <span class="trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg><span data-i18n="trait.pass">精准传球</span></span>
+            <span class="trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8" fill="currentColor"/></svg><span data-i18n="trait.shot">远射</span></span>
+            <span class="trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span data-i18n="trait.vision">视野</span></span>
+            <span class="trait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6 6 2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg><span data-i18n="trait.create">创造机会</span></span>
+          </div>
+          <dl class="facts">
+            <div class="fact"><dt data-i18n="fact.name">姓名</dt><dd data-i18n="fact.nameV">凯文·德布劳内（Kevin De Bruyne）</dd></div>
+            <div class="fact"><dt data-i18n="fact.club">现效力俱乐部</dt><dd data-i18n="fact.clubV">那不勒斯（SSC Napoli）</dd></div>
+            <div class="fact"><dt data-i18n="fact.pos">场上位置</dt><dd data-i18n="fact.posV">中场 / 前腰</dd></div>
+            <div class="fact"><dt data-i18n="fact.league">所在联赛</dt><dd data-i18n="fact.leagueV">意大利足球甲级联赛</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图：图集 ===== -->
+<section class="view" id="view-gallery">
+  <div class="section">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-eyebrow" data-i18n="gallery.eyebrow">GALLERY · 图集</div>
+        <h2 class="sec-title" data-i18n="gallery.title">影像与文字</h2>
+        <p class="sec-sub" data-i18n="gallery.sub">一些赛场与生活中的影像记录。</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="g-item g-1" data-cap-zh="赛场瞬间 · 带球推进" data-cap-en="On the Pitch · Carrying the ball">
+          <img src="assets/action-run.jpg" alt="Kevin De Bruyne 带球推进">
+          <figcaption class="g-cap"><h4 data-i18n="g.g1t">赛场瞬间</h4><p data-i18n="g.g1d">带球推进</p></figcaption>
+        </figure>
+        <figure class="g-item g-2" data-cap-zh="赛场瞬间 · 停球控制" data-cap-en="On the Pitch · Touch &amp; control">
+          <img src="assets/action-shoulder.jpg" alt="Kevin De Bruyne 停球控制">
+          <figcaption class="g-cap"><h4 data-i18n="g.g2t">停球控制</h4><p data-i18n="g.g2d">比赛中的第一脚触球</p></figcaption>
+        </figure>
+        <figure class="g-item g-3" data-cap-zh="国家队时刻" data-cap-en="National Team">
+          <img src="assets/belgium-euro.jpg" alt="Kevin De Bruyne 代表比利时国家队">
+          <figcaption class="g-cap"><h4 data-i18n="g.g3t">国家队时刻</h4><p data-i18n="g.g3d">欧洲杯赛场</p></figcaption>
+        </figure>
+        <figure class="g-item g-4" data-cap-zh="盘带突破" data-cap-en="Dribbling">
+          <img src="assets/action-dribble.jpg" alt="Kevin De Bruyne 盘带">
+          <figcaption class="g-cap"><h4 data-i18n="g.g4t">盘带突破</h4><p data-i18n="g.g4d">带球创造空间</p></figcaption>
+        </figure>
+        <figure class="g-item g-5" data-cap-zh="球场" data-cap-en="The Stadium">
+          <img src="assets/stadium-aerial.jpg" alt="夜晚灯光下的足球场">
+          <figcaption class="g-cap"><h4 data-i18n="g.g5t">球场</h4><p data-i18n="g.g5d">夜色下的主场</p></figcaption>
+        </figure>
+        <figure class="g-item g-6" data-cap-zh="肖像" data-cap-en="Portrait">
+          <img src="assets/hero-portrait.jpg" alt="Kevin De Bruyne 肖像">
+          <figcaption class="g-cap"><h4 data-i18n="g.g6t">肖像</h4><p data-i18n="g.g6d">官方定妆照</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图：生涯 ===== -->
+<section class="view" id="view-career">
+  <div class="section">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-eyebrow" data-i18n="career.eyebrow">CAREER · 生涯</div>
+        <h2 class="sec-title" data-i18n="career.title">生涯经历</h2>
+        <p class="sec-sub" data-i18n="career.sub">从亨克到那不勒斯，一段完整的中场大师之路。</p>
+      </div>
+      <h3 class="sub-title" data-i18n="career.clubTitle">俱乐部生涯</h3>
+      <div class="tl">
+        <div class="tl-row">
+          <div class="tl-time" data-i18n="career.c1t">2009 · 亨克</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-content"><div class="tl-card"><span data-i18n="career.c1d">2009年5月9日，17岁的德布劳内在比甲完成职业生涯首秀；2010年2月7日打进生涯首球。2010-11赛季出场35次、6球17助攻，帮助亨克夺得比甲联赛冠军。</span></div></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time" data-i18n="career.c2t">2012 · 切尔西</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-content"><div class="tl-card"><span data-i18n="career.c2d">2012年1月以900万英镑加盟切尔西，回租亨克至赛季结束；2012-13赛季租借德甲云达不莱梅，单季10球9助攻，德甲处子赛季一鸣惊人。</span></div></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time" data-i18n="career.c3t">2014 · 沃尔夫斯堡</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-content"><div class="tl-card"><span data-i18n="career.c3d">以约1800万英镑转投沃尔夫斯堡。2014-15赛季10球21助攻，打破德甲单赛季助攻纪录，率队夺得德国杯与德甲亚军，当选德国足球先生。</span></div></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time" data-i18n="career.c4t">2015 · 曼城</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-content"><div class="tl-card"><span data-i18n="career.c4d">以约5500万英镑加盟曼城。2017-18赛季随队以创纪录百分积分夺得英超冠军；2019-20赛季20次助攻追平亨利纪录，荣膺PFA年度最佳与英超赛季最佳球员。</span></div></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time" data-i18n="career.c5t">2022-23 · 三冠王</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-content"><div class="tl-card"><span data-i18n="career.c5d">以绝对核心帮助曼城夺得英超、足总杯与队史首座欧冠冠军，成就“三冠王”伟业；2023-24赛季英超连冠，再添欧超杯、世俱杯与社区盾。截至2026年6月，已为曼城出场超500次、助攻突破200次。</span></div></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time" data-i18n="career.c6t">2025 · 那不勒斯</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-content"><div class="tl-card"><span data-i18n="career.c6d">2025年6月加盟意甲那不勒斯。2025-26赛季各项赛事出场21次、5球4助攻、直接参与9球，场均评分7.04。</span></div></div>
+        </div>
+      </div>
+      <h3 class="sub-title" style="margin-top:34px" data-i18n="career.ntTitle">国家队生涯</h3>
+      <div class="tl">
+        <div class="tl-row">
+          <div class="tl-time" data-i18n="career.n1t">2010年8月</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-content"><div class="tl-card"><span data-i18n="career.n1d">完成比利时国家队首秀。</span></div></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time" data-i18n="career.n2t">2014-2024</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-content"><div class="tl-card"><span data-i18n="career.n2d">随比利时出战2014年世界杯、2016年欧洲杯、2018年世界杯、2020年欧洲杯、2022年世界杯和2024年欧洲杯，共六届大赛。</span></div></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time" data-i18n="career.n3t">2026年5月15日</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-content"><div class="tl-card"><span data-i18n="career.n3d">入选比利时国家队出征2026年国际足联世界杯大名单。</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 视图：数据 ===== -->
+<section class="view" id="view-stats">
+  <div class="section">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-eyebrow" data-i18n="stats.eyebrow">STATS · 数据</div>
+        <h2 class="sec-title" data-i18n="stats.title">数据经历</h2>
+        <p class="sec-sub" data-i18n="stats.sub">2025-26赛季数据与生涯里程碑。</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num">21</div><div class="lbl" data-i18n="stat.app">出场</div><div class="stat-note" data-i18n="stat.season">2025-26 · 各项赛事</div></div>
+        <div class="stat-card"><div class="num">5</div><div class="lbl" data-i18n="stat.goals">进球</div><div class="stat-note" data-i18n="stat.season">2025-26 · 各项赛事</div></div>
+        <div class="stat-card"><div class="num">4</div><div class="lbl" data-i18n="stat.assists">助攻</div><div class="stat-note" data-i18n="stat.season">2025-26 · 各项赛事</div></div>
+        <div class="stat-card"><div class="num">7.04</div><div class="lbl" data-i18n="stat.rating">场均评分</div><div class="stat-note" data-i18n="stat.season">2025-26 · 各项赛事</div></div>
+      </div>
+
+      <h3 class="sub-title" style="margin-top:36px" data-i18n="stats.mileTitle">生涯里程碑</h3>
+      <div class="mile-grid">
+        <div class="mile"><div class="mile-num">500+</div><div class="mile-d" data-i18n="stats.mile1d">曼城出场次数（截至2026年6月）</div></div>
+        <div class="mile"><div class="mile-num">200+</div><div class="mile-d" data-i18n="stats.mile2d">曼城助攻数，英超历史助攻榜前三中唯一现役球员</div></div>
+        <div class="mile"><div class="mile-num">21</div><div class="mile-d" data-i18n="stats.mile3d">德甲单赛季助攻纪录（2014-15 · 沃尔夫斯堡）</div></div>
+        <div class="mile"><div class="mile-num">20</div><div class="mile-d" data-i18n="stats.mile4d">追平亨利保持的英超单赛季助攻纪录（2019-20）</div></div>
+      </div>
+
+      <div class="trophy-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0V4Z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/></svg>
+        <span><b data-i18n="stats.trophyTitle">俱乐部荣誉</b><span> · </span><span data-i18n="stats.trophy">14 座主要奖杯：比甲×1 · 德国杯×1 · 英超×6 · 欧冠×1 · 足总杯×2 · 世俱杯×1 · 欧超杯×1 · 社区盾×1</span></span>
+      </div>
+
+      <div class="chart-wrap">
+        <div class="chart-head">
+          <div class="chart-title" data-i18n="stats.chartTitle">关键赛季 · 进球与助攻</div>
+          <div class="chart-legend"><span><i class="legend-dot dot-g"></i><span data-i18n="stats.chartG">进球</span></span><span><i class="legend-dot dot-a"></i><span data-i18n="stats.chartA">助攻</span></span></div>
+        </div>
+        <div class="chart-bars">
+          <div class="cbar"><div class="bars"><div class="bar bar-g" style="height:4.8%"><b>1</b></div><div class="bar bar-a" style="height:0%"></div></div><div class="lb"><span>2009-10</span><span class="club" data-i18n="club.genk">亨克</span></div></div>
+          <div class="cbar"><div class="bars"><div class="bar bar-g" style="height:28.6%"><b>6</b></div><div class="bar bar-a" style="height:81.0%"><b>17</b></div></div><div class="lb"><span>2010-11</span><span class="club" data-i18n="club.genk">亨克</span></div></div>
+          <div class="cbar"><div class="bars"><div class="bar bar-g" style="height:23.8%"><b>5</b></div><div class="bar bar-a" style="height:71.4%"><b>15</b></div></div><div class="lb"><span>2011-12</span><span class="club" data-i18n="club.genk">亨克</span></div></div>
+          <div class="cbar"><div class="bars"><div class="bar bar-g" style="height:47.6%"><b>10</b></div><div class="bar bar-a" style="height:42.9%"><b>9</b></div></div><div class="lb"><span>2012-13</span><span class="club" data-i18n="club.werder">不莱梅</span></div></div>
+          <div class="cbar"><div class="bars"><div class="bar bar-g" style="height:47.6%"><b>10</b></div><div class="bar bar-a" style="height:100%"><b>21</b></div></div><div class="lb"><span>2014-15</span><span class="club" data-i18n="club.wolfsburg">狼堡</span></div></div>
+          <div class="cbar"><div class="bars"><div class="bar bar-g" style="height:76.2%"><b>16</b></div><div class="bar bar-a" style="height:57.1%"><b>12</b></div></div><div class="lb"><span>2015-16</span><span class="club" data-i18n="club.city">曼城</span></div></div>
+          <div class="cbar"><div class="bars"><div class="bar bar-g" style="height:38.1%"><b>8</b></div><div class="bar bar-a" style="height:76.2%"><b>16</b></div></div><div class="lb"><span>2017-18</span><span class="club" data-i18n="club.city">曼城</span></div></div>
+          <div class="cbar"><div class="bars"><div class="bar bar-g" style="height:71.4%"><b>15</b></div><div class="bar bar-a" style="height:38.1%"><b>8</b></div></div><div class="lb"><span>2021-22</span><span class="club" data-i18n="club.city">曼城</span></div></div>
+          <div class="cbar"><div class="bars"><div class="bar bar-g" style="height:23.8%"><b>5</b></div><div class="bar bar-a" style="height:19.0%"><b>4</b></div></div><div class="lb"><span>2025-26</span><span class="club" data-i18n="club.napoli">那不勒斯</span></div></div>
+        </div>
+        <p class="chart-note" data-i18n="stats.chartNote">数据来自生涯记录的部分赛季；进球 / 助攻为当季合计，口径随赛季来源略有差异。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5 data-i18n="brand.name">凯文·德布劳内</h5>
+        <p data-i18n="footer.tag">个人主页 · 足球运动员</p>
+      </div>
+      <div>
+        <h5 data-i18n="footer.nav">导航</h5>
+        <div class="links">
+          <a href="#/home" data-i18n="nav.home">首页</a>
+          <a href="#/gallery" data-i18n="nav.gallery">图集</a>
+          <a href="#/career" data-i18n="nav.career">生涯</a>
+          <a href="#/stats" data-i18n="nav.stats">数据</a>
+        </div>
+      </div>
+      <div>
+        <h5 data-i18n="footer.note">说明</h5>
+        <p data-i18n="footer.credit">图片来自公开网络，版权归原作者所有。</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Kevin De Bruyne · <span data-i18n="footer.right">保留所有权利</span></span>
+      <span data-i18n="footer.langHint">中 / EN 语言切换位于页面右上角</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== 灯箱 ===== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lbClose" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<script>
+/* ===== 国际化 ===== */
+var I18N = {
+  zh: {
+    "brand.name":"凯文·德布劳内",
+    "nav.home":"首页","nav.gallery":"图集","nav.career":"生涯","nav.stats":"数据",
+    "hero.eyebrow":"个人主页 · 足球运动员",
+    "hero.name":"凯文·德布劳内","hero.nameEn":"Kevin De Bruyne",
+    "hero.role1":"意大利足球甲级联赛 · 那不勒斯主力中场","hero.role2":"司职中场 / 前腰",
+    "hero.sub":"以精准传球、远射、视野和创造机会能力著称，被广泛认为是英超时代最具代表性的中场球员之一。",
+    "hero.cta.gallery":"查看图集","hero.cta.career":"了解生涯","hero.scroll":"向下滚动",
+    "about.eyebrow":"ABOUT · 关于我","about.title":"个人信息","about.portraitCap":"官方肖像",
+    "about.introTitle":"自我介绍",
+    "about.lead1":"凯文·德布劳内（Kevin De Bruyne），1991年6月28日出生于比利时德龙恩，比利时职业男子足球运动员，司职中场，现效力于意大利足球甲级联赛的那不勒斯足球俱乐部。",
+    "about.lead2":"俱乐部方面，德布劳内出道于根特青训营；2005年加入亨克青年队，2008-09赛季升入一线队。2012年加盟切尔西，同年租借云达不莱梅；2014年加盟沃尔夫斯堡；2015年8月加盟曼彻斯特城，效力曼城期间夺得6次英超冠军、1次欧冠冠军、2次足总杯冠军和1次世俱杯冠军。2025年6月，加盟那不勒斯。",
+    "about.lead3":"国家队方面，2010年8月完成比利时国家队首秀，先后随队参加2014年世界杯、2016年欧洲杯、2018年世界杯、2020年欧洲杯、2022年世界杯和2024年欧洲杯六届大赛。2026年5月15日，入选比利时国家队出征2026年国际足联世界杯大名单。",
+    "trait.pass":"精准传球","trait.shot":"远射","trait.vision":"视野","trait.create":"创造机会",
+    "fact.name":"姓名","fact.nameV":"凯文·德布劳内（Kevin De Bruyne）",
+    "fact.club":"现效力俱乐部","fact.clubV":"那不勒斯（SSC Napoli）",
+    "fact.pos":"场上位置","fact.posV":"中场 / 前腰",
+    "fact.league":"所在联赛","fact.leagueV":"意大利足球甲级联赛",
+    "gallery.eyebrow":"GALLERY · 图集","gallery.title":"影像与文字","gallery.sub":"一些赛场与生活中的影像记录。",
+    "g.g1t":"赛场瞬间","g.g1d":"带球推进",
+    "g.g2t":"停球控制","g.g2d":"比赛中的第一脚触球",
+    "g.g3t":"国家队时刻","g.g3d":"欧洲杯赛场",
+    "g.g4t":"盘带突破","g.g4d":"带球创造空间",
+    "g.g5t":"球场","g.g5d":"夜色下的主场",
+    "g.g6t":"肖像","g.g6d":"官方定妆照",
+    "career.eyebrow":"CAREER · 生涯","career.title":"生涯经历","career.sub":"从亨克到那不勒斯，一段完整的中场大师之路。",
+    "career.clubTitle":"俱乐部生涯",
+    "career.c1t":"2009 · 亨克","career.c1d":"2009年5月9日，17岁的德布劳内在比甲完成职业生涯首秀；2010年2月7日打进生涯首球。2010-11赛季出场35次、6球17助攻，帮助亨克夺得比甲联赛冠军。",
+    "career.c2t":"2012 · 切尔西","career.c2d":"2012年1月以900万英镑加盟切尔西，回租亨克至赛季结束；2012-13赛季租借德甲云达不莱梅，单季10球9助攻，德甲处子赛季一鸣惊人。",
+    "career.c3t":"2014 · 沃尔夫斯堡","career.c3d":"以约1800万英镑转投沃尔夫斯堡。2014-15赛季10球21助攻，打破德甲单赛季助攻纪录，率队夺得德国杯与德甲亚军，当选德国足球先生。",
+    "career.c4t":"2015 · 曼城","career.c4d":"以约5500万英镑加盟曼城。2017-18赛季随队以创纪录百分积分夺得英超冠军；2019-20赛季20次助攻追平亨利纪录，荣膺PFA年度最佳与英超赛季最佳球员。",
+    "career.c5t":"2022-23 · 三冠王","career.c5d":"以绝对核心帮助曼城夺得英超、足总杯与队史首座欧冠冠军，成就“三冠王”伟业；2023-24赛季英超连冠，再添欧超杯、世俱杯与社区盾。截至2026年6月，已为曼城出场超500次、助攻突破200次。",
+    "career.c6t":"2025 · 那不勒斯","career.c6d":"2025年6月加盟意甲那不勒斯。2025-26赛季各项赛事出场21次、5球4助攻、直接参与9球，场均评分7.04。",
+    "career.ntTitle":"国家队生涯",
+    "career.n1t":"2010年8月","career.n1d":"完成比利时国家队首秀。",
+    "career.n2t":"2014-2024","career.n2d":"随比利时出战2014年世界杯、2016年欧洲杯、2018年世界杯、2020年欧洲杯、2022年世界杯和2024年欧洲杯，共六届大赛。",
+    "career.n3t":"2026年5月15日","career.n3d":"入选比利时国家队出征2026年国际足联世界杯大名单。",
+    "stats.eyebrow":"STATS · 数据","stats.title":"数据经历","stats.sub":"2025-26赛季数据与生涯里程碑。",
+    "stat.app":"出场","stat.goals":"进球","stat.assists":"助攻","stat.rating":"场均评分",
+    "stat.season":"2025-26 · 各项赛事",
+    "stats.mileTitle":"生涯里程碑",
+    "stats.mile1d":"曼城出场次数（截至2026年6月）",
+    "stats.mile2d":"曼城助攻数，英超历史助攻榜前三中唯一现役球员",
+    "stats.mile3d":"德甲单赛季助攻纪录（2014-15 · 沃尔夫斯堡）",
+    "stats.mile4d":"追平亨利保持的英超单赛季助攻纪录（2019-20）",
+    "stats.trophyTitle":"俱乐部荣誉",
+    "stats.trophy":"14 座主要奖杯：比甲×1 · 德国杯×1 · 英超×6 · 欧冠×1 · 足总杯×2 · 世俱杯×1 · 欧超杯×1 · 社区盾×1",
+    "stats.chartTitle":"关键赛季 · 进球与助攻",
+    "stats.chartNote":"数据来自生涯记录的部分赛季；进球 / 助攻为当季合计，口径随赛季来源略有差异。",
+    "stats.chartG":"进球","stats.chartA":"助攻",
+    "club.genk":"亨克","club.werder":"不莱梅","club.wolfsburg":"狼堡","club.city":"曼城","club.napoli":"那不勒斯",
+    "footer.tag":"个人主页 · 足球运动员","footer.nav":"导航","footer.note":"说明",
+    "footer.credit":"图片来自公开网络，版权归原作者所有。",
+    "footer.right":"保留所有权利","footer.langHint":"语言切换位于页面右上角"
+  },
+  en: {
+    "brand.name":"Kevin De Bruyne",
+    "nav.home":"Home","nav.gallery":"Gallery","nav.career":"Career","nav.stats":"Stats",
+    "hero.eyebrow":"PERSONAL HOMEPAGE · FOOTBALLER",
+    "hero.name":"Kevin De Bruyne","hero.nameEn":"凯文·德布劳内",
+    "hero.role1":"First-choice midfielder · SSC Napoli (Serie A)","hero.role2":"Midfielder / Attacking Midfielder",
+    "hero.sub":"Renowned for pinpoint passing, long-range shooting, vision and chance creation — widely regarded as one of the defining midfielders of the Premier League era.",
+    "hero.cta.gallery":"View Gallery","hero.cta.career":"Career Story","hero.scroll":"Scroll down",
+    "about.eyebrow":"ABOUT · PROFILE","about.title":"Profile","about.portraitCap":"Official portrait",
+    "about.introTitle":"Self Introduction",
+    "about.lead1":"Kevin De Bruyne (born 28 June 1991 in Drongen, Belgium) is a Belgian professional footballer who plays as a midfielder for Serie A club SSC Napoli.",
+    "about.lead2":"Club career: De Bruyne came through the youth ranks of Genk and was promoted to the first team in 2008–09. He joined Chelsea in 2012 and was loaned to Werder Bremen that summer; he moved to Wolfsburg in 2014 and to Manchester City in August 2015. During his time at City he won 6 Premier League titles, 1 Champions League, 2 FA Cups and 1 FIFA Club World Cup. In June 2025 he joined Napoli.",
+    "about.lead3":"International career: De Bruyne made his senior debut for Belgium in August 2010 and has since played at six major tournaments — World Cup 2014, 2018, 2022 and Euro 2016, 2020, 2024. On 15 May 2026 he was named in Belgium's squad for the 2026 FIFA World Cup.",
+    "trait.pass":"Pinpoint Passing","trait.shot":"Long-range Shooting","trait.vision":"Vision","trait.create":"Chance Creation",
+    "fact.name":"Name","fact.nameV":"Kevin De Bruyne（凯文·德布劳内）",
+    "fact.club":"Current Club","fact.clubV":"SSC Napoli",
+    "fact.pos":"Position","fact.posV":"Midfielder / Attacking Midfielder",
+    "fact.league":"League","fact.leagueV":"Serie A (Italy)",
+    "gallery.eyebrow":"GALLERY","gallery.title":"Images & Notes","gallery.sub":"A selection of images from the pitch and beyond.",
+    "g.g1t":"On the Pitch","g.g1d":"Carrying the ball forward",
+    "g.g2t":"Touch & Control","g.g2d":"First touch under pressure",
+    "g.g3t":"National Team","g.g3d":"UEFA Euro moments",
+    "g.g4t":"Dribbling","g.g4d":"Creating space with the ball",
+    "g.g5t":"The Stadium","g.g5d":"Home under the lights",
+    "g.g6t":"Portrait","g.g6d":"Official portrait",
+    "career.eyebrow":"CAREER","career.title":"Career Story","career.sub":"From Genk to Napoli — the story of a midfield master.",
+    "career.clubTitle":"Club Career",
+    "career.c1t":"2009 · Genk","career.c1d":"Made his professional debut in the Belgian Pro League aged 17 (9 May 2009); scored his first goal on 7 Feb 2010. 2010–11: 35 appearances, 6 goals and 17 assists as Genk won the Pro League title.",
+    "career.c2t":"2012 · Chelsea","career.c2d":"Joined Chelsea for £9m in January 2012, loaned back to Genk for the rest of the season; 2012–13: a loan at Bundesliga side Werder Bremen brought 10 goals and 9 assists in a superb debut season.",
+    "career.c3t":"2014 · Wolfsburg","career.c3d":"Moved to Wolfsburg for around £18m. 2014–15: 10 goals and a record-breaking 21 assists, winning the DFB-Pokal and finishing Bundesliga runners-up — named Footballer of the Year in Germany.",
+    "career.c4t":"2015 · Man City","career.c4d":"Signed for around £55m. 2017–18: a record 100-point Premier League title; 2019–20: 20 assists to equal Henry's record, winning both PFA and Premier League Player of the Year.",
+    "career.c5t":"2022–23 · The Treble","career.c5d":"The driving force behind City's Premier League, FA Cup and first-ever Champions League treble; 2023–24 brought back-to-back titles plus the UEFA Super Cup, FIFA Club World Cup and Community Shield. By June 2026: 500+ appearances and 200+ assists for City.",
+    "career.c6t":"2025 · Napoli","career.c6d":"Joined SSC Napoli in June 2025. 2025–26: 21 appearances, 5 goals and 4 assists in all competitions — 9 goal involvements, average rating 7.04.",
+    "career.ntTitle":"International Career",
+    "career.n1t":"Aug 2010","career.n1d":"Senior debut for Belgium.",
+    "career.n2t":"2014–2024","career.n2d":"Six major tournaments: World Cup 2014, 2018, 2022 and Euro 2016, 2020, 2024.",
+    "career.n3t":"15 May 2026","career.n3d":"Named in Belgium's squad for the 2026 FIFA World Cup.",
+    "stats.eyebrow":"STATS","stats.title":"Career Statistics","stats.sub":"2025–26 season numbers and career milestones.",
+    "stat.app":"Appearances","stat.goals":"Goals","stat.assists":"Assists","stat.rating":"Avg Rating",
+    "stat.season":"2025–26 · All competitions",
+    "stats.mileTitle":"Career Milestones",
+    "stats.mile1d":"Appearances for Manchester City (as of June 2026)",
+    "stats.mile2d":"Assists for City — the only active player in the PL's all-time top-3 assist chart",
+    "stats.mile3d":"Bundesliga single-season assist record (2014–15 · Wolfsburg)",
+    "stats.mile4d":"Equalled Henry's Premier League single-season assist record (2019–20)",
+    "stats.trophyTitle":"Club Honours",
+    "stats.trophy":"14 major trophies: Pro League ×1 · DFB-Pokal ×1 · Premier League ×6 · Champions League ×1 · FA Cup ×2 · Club World Cup ×1 · UEFA Super Cup ×1 · Community Shield ×1",
+    "stats.chartTitle":"Goals & Assists in Key Seasons",
+    "stats.chartNote":"Figures from selected seasons in his career record; goals/assists are season totals, with scope varying by source season.",
+    "stats.chartG":"Goals","stats.chartA":"Assists",
+    "club.genk":"Genk","club.werder":"Werder","club.wolfsburg":"Wolfsburg","club.city":"Man City","club.napoli":"Napoli",
+    "footer.tag":"Personal Homepage · Footballer","footer.nav":"Navigation","footer.note":"Notes",
+    "footer.credit":"Photos from public sources; all rights belong to their original owners.",
+    "footer.right":"All rights reserved","footer.langHint":"Language toggle is at the top-right corner"
+  }
+};
+var curLang = localStorage.getItem("kdb-lang") || "zh";
+function applyLang(){
+  document.documentElement.lang = curLang === "zh" ? "zh-CN" : "en";
+  document.getElementById("year").textContent = new Date().getFullYear();
+  var dict = I18N[curLang];
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var k = el.getAttribute("data-i18n");
+    if(dict[k] !== undefined) el.textContent = dict[k];
+  });
+  document.getElementById("langBtn").textContent = curLang === "zh" ? "EN" : "中文";
+  document.title = dict["hero.name"] + " · " + (curLang === "zh" ? "个人主页" : "Personal Homepage");
+}
+function toggleLang(){
+  curLang = curLang === "zh" ? "en" : "zh";
+  localStorage.setItem("kdb-lang", curLang);
+  applyLang();
+  renderLightboxCaption();
+}
+document.getElementById("langBtn").addEventListener("click", toggleLang);
+
+/* ===== 路由 ===== */
+function route(){
+  var h = (location.hash || "#/home").replace(/^#\//, "") || "home";
+  document.querySelectorAll(".view").forEach(function(v){
+    v.classList.toggle("active", v.id === "view-" + h);
+  });
+  document.querySelectorAll(".nav-links a").forEach(function(a){
+    a.classList.toggle("active", a.getAttribute("href") === "#/" + h);
+  });
+  window.scrollTo({top:0, behavior:"auto"});
+  closeMenu();
+}
+window.addEventListener("hashchange", route);
+
+/* ===== 导航 ===== */
+var nav = document.getElementById("nav");
+window.addEventListener("scroll", function(){
+  nav.classList.toggle("scrolled", window.scrollY > 12);
+}, {passive:true});
+var burger = document.getElementById("burger");
+var navLinks = document.getElementById("navLinks");
+burger.addEventListener("click", function(){
+  navLinks.classList.toggle("open");
+  burger.classList.toggle("open");
+});
+function closeMenu(){
+  navLinks.classList.remove("open");
+  burger.classList.remove("open");
+}
+
+/* ===== 灯箱 ===== */
+var lightbox = document.getElementById("lightbox");
+var lbImg = document.getElementById("lbImg");
+var lbCap = document.getElementById("lbCap");
+document.querySelectorAll(".g-item").forEach(function(item){
+  item.addEventListener("click", function(){
+    var img = item.querySelector("img");
+    lbImg.src = img.getAttribute("src");
+    renderLightboxCaption(item);
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+});
+function renderLightboxCaption(item){
+  if(!item) return;
+  var zh = item.getAttribute("data-cap-zh") || "";
+  var en = item.getAttribute("data-cap-en") || "";
+  lbCap.textContent = curLang === "zh" ? zh : en;
+}
+function closeLightbox(){
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.getElementById("lbClose").addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", function(e){
+  if(e.target === lightbox) closeLightbox();
+});
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
+});
+
+/* ===== 初始化 ===== */
+applyLang();
+route();
+</script>
+</body>
+</html>
